@@ -1,0 +1,106 @@
+#+BEGIN_QUOTE
+This is a very early draft and not ready for use at all.
+
+Before the initial release I will squash all commits into a single
+"Initial import", so that there is one less thing to confuse the
+users.
+
+Contributions are highly welcome and you will be attributed (just not
+in the form of having your name attached the commits).  For example it
+would help me a lot if someone who uses babel for their own
+configuration could set that up, and if someone who uses ~package.el~
+could set that up.
+#+END_QUOTE
+
+* Getting started with Emacs and Magit
+
+This document is intended for users who have heard about Magit and
+would like to give it a try but are a bit worried about having to
+learn to use Emacs at the same time.
+
+It won't actually save you from having to learn the basics, but it
+should ease the process a bit, by providing a basic configuration
+and links to the relevant documentation.
+
+** About this document
+
+This document comes in various forms.  If you are looking at it for
+the first time, then it might be least scary to look at it in a web
+browser by visiting https://magit.vc/config.
+
+This document uses literate programming; quoting from the [[https://en.wikipedia.org/wiki/Literate_programming][Wikipedia]]:
+
+#+BEGIN_QUOTE
+Literate programming is a programming paradigm introduced by Donald
+Knuth in which a program is given as an explanation of the program
+logic in a natural language, such as English, interspersed with
+snippets of macros and traditional source code, from which a
+compilable source code can be generated.
+#+End_QUOTE
+
+The web page at https://magit.vc/config is generated from the source
+document and a file containing Emacs Lisp code is also generated from
+the same source file.
+
+That Emacs Lisp file is the configuration file for Emacs.  For it to
+be loaded by Emacs it has to be located at ~~/.emacs.d/init.el~, but you
+can also look at it in a browser at
+https://github.com/magit/config/blob/master/init.el.
+
+The source file itself can be viewed at
+https://raw.githubusercontent.com/magit/config/master/README.org.
+
+Note that /you/ don't have to edit ~README.org~ and then generate ~init.el~
+from that.  You can do that if you want, but you can also just edit
+~init.el~ directly.
+
+** About the Emacs configuration file
+
+Emacs is much more customizable than any other editors.  The
+configuration file ~~/.emacs.d/init.el~ is written in Emacs Lisp, which
+is a full-fledged programming language.  Most features of Emacs are
+implemented in the same language (other parts are implemented in C).
+This can be a bit intimidating and it's one of the reasons why I saw
+the need to write this document.
+
+** Important documentation
+
+These are the official manuals about Emacs:
+
+- [[https://www.gnu.org/software/emacs/manual/html_node/emacs/index.html][The Emacs Editor]]
+- [[https://www.gnu.org/software/emacs/manual/html_node/elisp/index.html][Emacs Lisp]]
+- [[https://www.gnu.org/software/emacs/manual/html_node/eintr/index.html][An Introduction to Programming in Emacs Lisp]]
+- [[https://www.gnu.org/software/emacs/manual/html_node/efaq/index.html][The GNU Emacs FAQ]]
+- [[https://www.gnu.org/software/emacs/manual/html_node/efaq-w32/index.html][GNU Emacs FAQ for MS Windows]]
+- [[https://www.gnu.org/software/emacs/refcards/index.html][GNU Emacs Reference Cards]]
+
+These manuals and other manuals about specific Emacs packages are
+listed at https://www.gnu.org/software/emacs/manual/.
+
+These manuals are of very high quality and reading them really helps.
+They are also very long.  My suggestion would be that you read [[https://www.gnu.org/software/emacs/manual/html_node/emacs/index.html#Top][Intro]]
+from "The Emacs Editor" first.
+
+Magit's manual is also [[https://magit.vc/manual/magit/#Top][available]] online.
+
+** Installing Emacs
+
+This configuration assumes that the latest Emacs release is used.
+Currently that is 26.1.
+
+Please describe how to do that on your platform.
+
+** Getting this configuration onto your computer
+
+** The actual configuration
+
+#+BEGIN_SRC emacs-lisp
+  (require 'package)
+  (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+  (package-initialize)
+
+  (require 'use-package) ; TODO install it
+
+  (use-package magit ; TODO key bindings and such
+    :ensure t)
+#+END_SRC
